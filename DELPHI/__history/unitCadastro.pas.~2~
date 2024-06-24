@@ -1,0 +1,71 @@
+unit unitCadastro;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Edit,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.TabControl, FMX.DateTimeCtrls;
+
+type
+  TForm2 = class(TForm)
+    TabControl1: TTabControl;
+    TabItem1: TTabItem;
+    TabItem2: TTabItem;
+    TabItem3: TTabItem;
+    Label1: TLabel;
+    edtNome: TEdit;
+    edtEmail: TEdit;
+    Label2: TLabel;
+    edtTelefone: TEdit;
+    Label3: TLabel;
+    Masculino: TRadioButton;
+    Femenino: TRadioButton;
+    GroupBox1: TGroupBox;
+    DateEdit1: TDateEdit;
+    Label4: TLabel;
+    Label5: TLabel;
+    edtRG: TEdit;
+    edtCPF: TEdit;
+    Label6: TLabel;
+    Label7: TLabel;
+    edtPeso: TEdit;
+    Label8: TLabel;
+    edtAltura: TEdit;
+    Button1: TButton;
+    Label9: TLabel;
+    edtEnderenco: TEdit;
+    Label10: TLabel;
+    Edit7: TEdit;
+    Label11: TLabel;
+    Edit8: TEdit;
+    Button2: TButton;
+    Edit1: TEdit;
+    Label12: TLabel;
+    Label13: TLabel;
+    Edit2: TEdit;
+    Label14: TLabel;
+    Edit3: TEdit;
+    Label15: TLabel;
+    Edit4: TEdit;
+    Button3: TButton;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.fmx}
+
+procedure TForm2.Button1Click(Sender: TObject);
+begin
+TabControl1.ActiveTab:= TabItem3;
+end;
+
+end.

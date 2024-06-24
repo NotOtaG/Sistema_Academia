@@ -1,0 +1,141 @@
+unit unitLogin;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.TabControl,
+  FMX.Objects, FMX.StdCtrls, FMX.Edit, FMX.Controls.Presentation, FMX.Layouts,
+  FMX.ComboEdit, FMX.EditBox, FMX.ComboTrackBar;
+
+type
+  TForm3 = class(TForm)
+    TabControl1: TTabControl;
+    TabItem1: TTabItem;
+    Label1: TLabel;
+    edtNome: TEdit;
+    Label18: TLabel;
+    Edit9: TEdit;
+    Button1: TButton;
+    TabItem2: TTabItem;
+    TabItem3: TTabItem;
+    TabItem4: TTabItem;
+    TabItem5: TTabItem;
+    Layout3: TLayout;
+    Layout1: TLayout;
+    Label2: TLabel;
+    Layout2: TLayout;
+    Layout4: TLayout;
+    RoundRect1: TRoundRect;
+    Label3: TLabel;
+    Layout5: TLayout;
+    RoundRect2: TRoundRect;
+    Label4: TLabel;
+    Layout6: TLayout;
+    RoundRect3: TRoundRect;
+    Label5: TLabel;
+    ComboEdit1: TComboEdit;
+    edtTreino1: TEdit;
+    edtSeries1: TEdit;
+    Label6: TLabel;
+    Label7: TLabel;
+    edtTreino2: TEdit;
+    Label8: TLabel;
+    edtSeries2: TEdit;
+    Label9: TLabel;
+    edtTreino3: TEdit;
+    Label10: TLabel;
+    edtSeries3: TEdit;
+    Label11: TLabel;
+    edtTreino4: TEdit;
+    Label12: TLabel;
+    edtSeries4: TEdit;
+    Label13: TLabel;
+    edtTreino5: TEdit;
+    Label14: TLabel;
+    edtSeries5: TEdit;
+    Label15: TLabel;
+    Button2: TButton;
+    RadioButton2: TRadioButton;
+    Button3: TButton;
+    Button4: TButton;
+    procedure RoundRect1Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure RoundRect2Click(Sender: TObject);
+    procedure RoundRect3Click(Sender: TObject);
+    procedure ComboEdit1Change(Sender: TObject);
+    procedure SeleçãoChange(Sender: TObject);
+    procedure RadioButton1Change(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form3: TForm3;
+
+implementation
+
+{$R *.fmx}
+
+procedure TForm3.Button1Click(Sender: TObject);
+begin
+TabControl1.ActiveTab:= TabItem2;
+TabItem1.Visible:= false;
+TabItem2.Visible:= true;
+TabItem3.Visible:= false;
+TabItem4.Visible:= false;
+TabItem5.Visible:= false;
+end;
+
+procedure TForm3.SeleçãoChange(Sender: TObject);
+begin
+ComboEdit1.Enabled:= True;
+end;
+
+procedure TForm3.ComboEdit1Change(Sender: TObject);
+begin
+ComboEdit1.Enabled:= false;
+end;
+
+procedure TForm3.RadioButton1Change(Sender: TObject);
+begin
+edtTreino1.Text:= '';
+edtTreino2.Text:= '';
+edtTreino3.Text:= '';
+edtTreino4.Text:= '';
+edtTreino5.Text:= '';
+end;
+
+procedure TForm3.RoundRect1Click(Sender: TObject);
+begin
+TabControl1.ActiveTab:= TabItem3;
+TabItem1.Visible:= false;
+TabItem2.Visible:= false;
+TabItem3.Visible:= true;
+TabItem4.Visible:= false;
+TabItem5.Visible:= false;
+end;
+
+procedure TForm3.RoundRect2Click(Sender: TObject);
+begin
+TabControl1.ActiveTab:= TabItem4;
+TabItem1.Visible:= false;
+TabItem2.Visible:= false;
+TabItem3.Visible:= false;
+TabItem4.Visible:= true;
+TabItem5.Visible:= false;
+end;
+
+procedure TForm3.RoundRect3Click(Sender: TObject);
+begin
+TabControl1.ActiveTab:= TabItem4;
+TabItem1.Visible:= false;
+TabItem2.Visible:= false;
+TabItem3.Visible:= false;
+TabItem4.Visible:= false;
+TabItem5.Visible:= true;
+end;
+
+end.

@@ -1,0 +1,154 @@
+unit unitCadastro;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Edit,
+  FMX.Controls.Presentation, FMX.StdCtrls, FMX.TabControl, FMX.DateTimeCtrls,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
+
+type
+  Tform2 = class(TForm)
+    TabControl1: TTabControl;
+    TabItem1: TTabItem;
+    TabItem2: TTabItem;
+    TabItem3: TTabItem;
+    Label1: TLabel;
+    edtUsuario: TEdit;
+    edtEmail: TEdit;
+    Label2: TLabel;
+    edtTelefone: TEdit;
+    Label3: TLabel;
+    Masculino: TRadioButton;
+    Femenino: TRadioButton;
+    GroupBox1: TGroupBox;
+    DateEdit1: TDateEdit;
+    Label4: TLabel;
+    Label7: TLabel;
+    edtPeso: TEdit;
+    Label8: TLabel;
+    edtAltura: TEdit;
+    Label9: TLabel;
+    edtEnderenco: TEdit;
+    Label10: TLabel;
+    Edit7: TEdit;
+    Label11: TLabel;
+    Edit8: TEdit;
+    Edit1: TEdit;
+    Label12: TLabel;
+    Label13: TLabel;
+    Edit2: TEdit;
+    Label14: TLabel;
+    Edit3: TEdit;
+    Label15: TLabel;
+    Edit4: TEdit;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Edit5: TEdit;
+    Label16: TLabel;
+    Edit6: TEdit;
+    Label17: TLabel;
+    Label18: TLabel;
+    edtSenha: TEdit;
+    Label19: TLabel;
+    edtNome: TEdit;
+    FDQuery1: TFDQuery;
+    SpeedButton1: TSpeedButton;
+    procedure btn1Click(Sender: TObject);
+    procedure btn20Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  form2: Tform2;
+
+implementation
+
+{$R *.fmx}
+
+uses unitDM1;
+
+procedure Tform2.btn1Click(Sender: TObject);
+begin
+TabControl1.ActiveTab:= TabItem2;
+end;
+
+procedure Tform2.btn20Click(Sender: TObject);
+begin
+TabControl1.ActiveTab:= TabItem1;
+end;
+
+procedure Tform2.Button1Click(Sender: TObject);
+begin
+TabControl1.ActiveTab:= TabItem2;
+TabItem1.Visible:= false;
+TabItem2.Visible:= true;
+TabItem3.Visible:= false;
+end;
+
+procedure Tform2.Button2Click(Sender: TObject);
+begin
+TabControl1.ActiveTab:= TabItem1;
+TabItem1.Visible:= true;
+TabItem2.Visible:= false;
+TabItem3.Visible:= false;
+end;
+
+procedure Tform2.Button3Click(Sender: TObject);
+begin
+TabControl1.ActiveTab:= TabItem3;
+TabItem1.Visible:= false;
+TabItem2.Visible:= false;
+TabItem3.Visible:= true;
+end;
+
+procedure Tform2.Button4Click(Sender: TObject);
+begin
+TabControl1.ActiveTab:= TabItem2;
+TabItem1.Visible:= false;
+TabItem2.Visible:= true;
+TabItem3.Visible:= false;
+end;
+
+procedure Tform2.SpeedButton1Click(Sender: TObject);
+var
+Peso: Integer;
+Altura: Integer;
+Telefone: Integer;
+begin
+  Peso:= StrToInt(edtPeso.Text);
+  Altura:= StrToInt(edtAltura.Text);
+  Telefone:= StrToInt(edtTelefone.Text);
+  try
+    FDQuery1.SQL.Text := 'INSERT INTO InformacoesPessoais (Nome,Senha,Email,Sexo,Nascimento,Telefone,Peso,Altura,Usuario) VALUES (:Nome,:Senha,:Email,:Sexo,:Nascimento,:Telefone,:Peso,:Altura,:Usuario)';
+    FDQuery1.ParamByName('Nome').AsString := edtNome.Text;
+    FDQuery1.ParamByName('Senha').AsString := edtSenha.Text;
+    FDQuery1.ParamByName('Email').AsString := edtEmail.Text;
+    FDQuery1.ParamByName('Sexo').AsString := GroupBox1.Text;
+    FDQuery1.ParamByName('Nascimento').AsDateTime := DateEdit1.DateTime;
+    FDQuery1.ParamByName('Peso').AsInteger := Peso;
+    FDQuery1.ParamByName('Altura').AsInteger := Altura;
+    FDQuery1.ParamByName('Telefone').AsInteger := Telefone;
+    FDQuery1.ParamByName('Usuario').AsString := edtUsuario.Text;
+    FDQuery1.ExecSQL;
+  finally
+    FDQuery1.Free;
+  end;
+form2.Close;
+end;
+
+end.
